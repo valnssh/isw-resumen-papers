@@ -1,2 +1,1 @@
-# isw-resumen-papers
-Resúmenes de los papers leidos para ISW.
+[Lista de papers.](https://www.isw2.com.ar/bibliografia-1/papers)
