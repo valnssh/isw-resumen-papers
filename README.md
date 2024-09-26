@@ -1,6 +1,13 @@
 [Lista de papers.](https://www.isw2.com.ar/bibliografia-1/papers)
 
 
+### [Polymorphic Hierarchy](https://www.dropbox.com/scl/fi/fkdkpgou9xgnu3utmsznx/Polymorphic-Hierarchy.pdf?rlkey=w2jx7ap3qgwlf3b1xfogtj5ny&e=1&dl=0) (Clase 13/09):
+- Una subimplementación de un método debería siempre hacer lo mismo que su superimplementación, osea la superimplementación define el "qué" hace la subimplementación. Solo debería variar el "como".
+- La descripción de un método se puede separar en propósito e implementación. El próposito tendría que estar definido unicamente en la superimplementación, y la implementación solo tendría que estar definido en la subimplementación (WOW).
+- Cuando todos los implementadores de ciertos métodos en una jerarquía responden estos de la misma forma, con los mismos efectos secundarios, haciendo el mismo "que", teniendo el mismo propósito entonces son polimórficos.
+- Cuando construimos una jerarquía, arriba de todo deberia estar la *Template Class*, que sea bien abstracta y defina el "que" de todas las clases que la subclasifican.
+
+
 ### [Double Dispatch](https://www.dropbox.com/s/f00ujuvfgqnkm55/A%20simple%20technique%20for%20handling%20multiple%20polymorphism%20-%20double%20dispatch.pdf?dl=0) (Clase 17/09):
 - Situacion: Tenemos un objeto de una primera jerarquia polimorfica que recibe un mensaje de un metodo que toma como argumento un segundo objeto de una segunda jerarquia polimorfica.
 - Problema: tener unos ifs en cada implementacion del metodo que hardcodean codigo para evaluar segun el tipo del argumento.
@@ -16,5 +23,5 @@
   1) Crear una clase nombrada en base al metodo que abstraemos.
   2) Los colaboradores internos de las instancias tienen que ser todos los que tenia el objeto original + todos los parametros que recibia el metodo + todas las variables temporales del metodo.
   3) El constructor tiene que recibir todo lo anterior.
-  4) Pasamos el codigo gigante que teniamos a un metodo #compute en el Method Object (y ya lo podemos mejorar).
-  5) Reemplazamos en el metodo original, ahora solamente vamos a crear una instancia del Method Object y le vamos a enviar #compute.
+  4) Pasamos el codigo gigante que teniamos a un metodo #compute en el *Method Object* (y ya lo podemos mejorar).
+  5) Reemplazamos en el metodo original, ahora solamente vamos a crear una instancia del *Method Object* y le vamos a enviar #compute.
