@@ -42,6 +42,18 @@
     4) Educar a los programadores en las buenas prácticas de diseño.
 
 
+### [Self-The Power Of Simplicity](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/4.%20Self%3A%20The%20Power%20Of%20Simplicity.pdf) (Clase 03/09):
+- Este paper define el lenguaje *Self*, un lenguaje de prototipado, y explica sus pros y contras. Lo más parecido que usamos en la materia fueron los Denotative Objects.
+- *Self* se basa en prototipos: Todo en *Self* es un objeto, pero estos no son instanciados de una clase, sino que son clonados de otro objeto, al que muchas veces se lo llama objeto prototípico y que contiene comportamiento e información compartida.
+- En los prototipos la única relación que hay es la de parentezco, donde un objeto hijo puede "heredar" los slots de su objeto padre.
+- Al no tener clases, sino que se puede crear objetos "de la nada", *Self* soporta excepcionalmente bien la creación de objetos con características únicas, sin tener que definir una clase entera para crear un solo objeto muy particular.
+- Principios de *Self*:
+    1) La operación fundamental es el envio de mensajes. No solo los métodos de un objeto se acceden así, sino también los colaboradores internos, ambos almacenandose en los "slots" de un objeto.
+    2) Ser económico conceptualmente, *Self* se construye en muy pocos conceptos con mucho poder expresivo como el envío de mensajes.
+    3) Ser concreto, no diferenciar entre clase e instancia, todos los objetos pueden cumplir esos roles.
+- *Self*, al igual que *SmallTalk*, soporta el uso de closures. Cuando se debe ejecutar un método o un closure, lo que se hace es clonar el código respectivo en un nuevo objeto y establecerle de padre el objeto receptor del método en cuestión, de esta forma puede resolverse cual es el contexto de ejecución solo con herencia.
+
+
 ### [Polymorphic Hierarchy](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/6.%20Polymorphic%20Hierarchy.pdf) (Clase 13/09):
 - Una subimplementación de un método debería siempre hacer lo mismo que su superimplementación, osea la superimplementación define el "qué" hace la subimplementación. Solo debería variar el "como".
 - La descripción de un método se puede separar en propósito e implementación. El próposito tendría que estar definido unicamente en la superimplementación, y la implementación solo tendría que estar definido en la subimplementación (WOW).
