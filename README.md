@@ -25,6 +25,23 @@
 - *Mapping*: El mapeo es la relación entre dos cosas. En este caso, debemos poder mappear el diseño con lo que hace. Por ejemplo si tenemos un solo botón que realiza cosas opuestas dependiendo de si lo apretamos o lo mantenemos va a ser inentendible, debe realizar una sola acción que podamos asignarle.
 
 
+### [No Silver Bullet](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/3.%20No%20Silver%20Bullet%20%E2%80%93%20Essence%20and%20Accident%20in%20Software%20Engineering.pdf) (Clase 30/08):
+- Se distingue entre dos dificultades en el desarrollo de software: las esenciales, osea el diseño de estructuras conceptuales complejas que componen las entidades abstractas del software, y las accidentales, osea la representación de estos conceptos en la computadora.
+- Las dificultades accidentales son las que se han solucionado enormemente en el último tiempo, con mejores lenguajes de programación y mejor hardware.
+- En las dificultades esenciales no hay nada que pueda mejorar sustancialmente el desarrollo de software (por eso *No Silver Bullet*).
+- Se divide la dificultades esenciales en:
+    1) Complejidad: Las entidades de software son complejas, ya que no se construye mediante la repeticion de elementos ya creados, sino mediante la creación de nuevos con propiedades diferentes. En un edificio agrego tres pisos iguales a los anteriores y tengo un edificio mejor, más alto; en software agrego tres funciones iguales a la anterior y tengo el mismo software con código repetido.
+    2) Capricho: El software no sigue leyes de la naturaleza, sino que tiene que cumplir con los "caprichos" de sus usuarios, decisiones totalmente arbitrarias que varían de software a software.
+    3) Modificabilidad: Al ser software un producto del pensamiento, se puede modificar rapida y baratamente, lo que termina siendo una exigencia, ya que siempre se le querra añadir nueva funcionalidad para satisfacer más usuarios.
+    4) Invisibilidad: No se puede ver el software, lo que lo hace más dificil de razonar.
+- El paper da ejemplos de cosas de la época que el no espera que solucionen más que dificultades accidentales, o que sean solo de un área muy específica, como la OOP, la IA, o el testeo automático.
+- Por otro lado piensa que lo siguiente puede combatir las dificultades esenciales:
+    1) Comprar el software ya hecho. Simple, no reinventar la rueda, pararse arriba de lo ya construido.
+    2) Tener una metodología de desarrollo ágil, que pueda tener muchas iteraciones de contacto con los usuarios para refinar durante el desarrollo como debería ser el software final, especialemte valiendose de un rápido prototipado. 
+    3) Deberiamos desarrollar el software de forma iterativa incremental, haciendolo crecer, en contraposición con simplemente tratar de construirlo como si fuera a salir bien al primer intento.
+    4) Educar a los programadores en las buenas prácticas de diseño.
+
+
 ### [Polymorphic Hierarchy](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/6.%20Polymorphic%20Hierarchy.pdf) (Clase 13/09):
 - Una subimplementación de un método debería siempre hacer lo mismo que su superimplementación, osea la superimplementación define el "qué" hace la subimplementación. Solo debería variar el "como".
 - La descripción de un método se puede separar en propósito e implementación. El próposito tendría que estar definido unicamente en la superimplementación, y la implementación solo tendría que estar definido en la subimplementación (WOW).
