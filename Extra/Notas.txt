@@ -1,0 +1,28 @@
+¿Cómo sacar código repetido? (“Pseudoalgoritmo”)
+1. Mover lo repetido a una nueva abstracción.
+2. Parametrizar lo que cambia.
+3. Poner nombre a la nueva abstracción.
+^ LO MÁS IMPORTANTE ^
+4. Reemplazar código repetido por uso de la nueva abstracción.
+
+
+Polimorﬁsmo
+Def.: Todos los objetos de un conjunto son polimórﬁcos entre si respecto de un conjunto de mensaje,
+si los objetos del primero responden semánticamente igual a los mensajes del segundo.
+
+“Pseudoalgoritmo” de polimorﬁsmo
+1. Crear jerarquía polimórﬁca con una clase por cada condición de if (opcional).
+2. Mover el cuerpo del if a cada nueva clase usando el mismo nombre de mensaje.
+3. Nombrar las abstracciones.
+4. Nombrar el mensaje del item 2).
+5. Reemplazar ifs por el envío del mensaje polimórﬁco.
+6. Buscar el objeto polimórﬁco (opcional).
+
+
+Heurísticas
+1. Crear objetos completos.
+2. Crear objetos válidos.
+3. Favorecer el uso de objetos inmutables.
+4. No usar nil / null.
+5. Evitar getters y settes (aka. no romper el encapsulamiento).
+6. Modiﬁcaciones atómicas.
