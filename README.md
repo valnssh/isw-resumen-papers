@@ -15,6 +15,14 @@
 - Se concluye que lo más importante de la programación es el programador.
 
 
+### [The Design of Everyday Things](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/2.%20The%20Design%20of%20Everyday%20Things.pdf) (Clase 27/08):
+- El libro analiza el diseño de los objetos de uso diario y como estos pueden enseñarnos a usarlos o confundirnos por completo.
+- Por ejemplo una puerta puede tener una manija y eso nos da la idea de que debemos tirar para abrir, o puede tener una parte plana donde apoyar la mano y darnos la idea de que hay que empujar, todo solo con el diseño y sin ninguna otra explicación.
+- El ejemplo anterior ilustra uno de los conceptos más importantes: la Visibilidad. Se deben ver las partes correctas del diseño (solo las que el usuario necesita), y deben transmitir el mensaje correcto.
+- *Feedback*: El feedback es devolver información como resultado de nuestras acciones. Por ejemplo apretar un botón y que se prenda una luz nos da garantías de que nuestra acción se ejecutó correctamente. Gracias a eso podemos aprender a utilizar las cosas.
+- *Affordances*: los objetos y los materiales de lo que estan hechos se pueden usar para ciertas cosas, y para otras no. El cerebro tiene una idea intuitiva de esto. Cuando se usa esto a favor el diseño mejora enormemente. El ejemplo de la puerta nos sirve, una manija nos permite tirar y nos resulta natural, pero si no hay manija no nos queda otra que empujar. Lo que se nos permite hacer son *Affordances*, lo que se nos prohibe son *Constraints*.
+- *Conceptual Models*: Es nuestro entendimiento de como "funciona" un objeto en cuestión, es la relacion entre los controles o las formas de interactuar con el objeto y los resultados que produce. Nos permite predecir el resultado de nuestras acciones, por ende poder usarlo a gusto.
+- *Mapping*: El mapeo es la relación entre dos cosas. En este caso, debemos poder mappear el diseño con lo que hace. Por ejemplo si tenemos un solo botón que realiza cosas opuestas dependiendo de si lo apretamos o lo mantenemos va a ser inentendible, debe realizar una sola acción que podamos asignarle.
 
 
 ### [Polymorphic Hierarchy](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/6.%20Polymorphic%20Hierarchy.pdf) (Clase 13/09):
