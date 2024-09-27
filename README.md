@@ -1,6 +1,22 @@
 [Lista de papers.](https://www.isw2.com.ar/bibliografia-1/papers)
 
 
+### [Programming As Theory Building](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/1.%20Programming%20As%20Theory%20Building.pdf) (Clase 23/08):
+- Se nos presenta el *Theory Building* como una forma diferente de entender la programación, en contraposición con la percepción clásica de que es solamente escribir código y otros textos.
+- En *Theory Building* entendemos la programación como la construcción de conocimiento por parte de los programadores sobre lo que estan construyendo, y como la realidad que intentan modelar se corresponde con su modelo.
+- Se define Teoria como el conocimiento para hacer ciertas cosas, pero con la habilidad de entenderlo, poder explicarlo, justificarlo y responder preguntas al respecto.
+- Se nos cuenta el ejemplo del compilador desarrollado por el grupo A, que más tarde pasó a manos del grupo B. Estos en su intento de mejorarlo y extenderlo lo unico que lograron fue implementar todo esto de forma erronea, como parcheando el código, destruyendo su simplicidad y eficiencia, todo por carecer del conocimiento necesario.
+- Según Naur, el programador que construyo esa teoría es superior a la documentacion en:
+    1) Responder como el programa modela la realidad.
+    2) Justificar porque el modelo es como es y no se hizo diferente.
+    3) Poder modificar el programa para adaptarse a los cambios en la realidad.
+- Peter Naur considera que este ultimo punto es el más supera a la percepción clásica de escribir codigo.
+- Tambien considera que si los desarrolladores de un programa se disuelven, la teoría se pierde y por lo tanto el programa "muere", y que solo se puede revivir por un equipo en contacto con los desarrolladores originales que puedan heredar la teoría.
+- Se concluye que lo más importante de la programación es el programador.
+
+
+
+
 ### [Polymorphic Hierarchy](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/6.%20Polymorphic%20Hierarchy.pdf) (Clase 13/09):
 - Una subimplementación de un método debería siempre hacer lo mismo que su superimplementación, osea la superimplementación define el "qué" hace la subimplementación. Solo debería variar el "como".
 - La descripción de un método se puede separar en propósito e implementación. El próposito tendría que estar definido unicamente en la superimplementación, y la implementación solo tendría que estar definido en la subimplementación (WOW).
