@@ -85,6 +85,14 @@
 - De esta forma en el metodo original ya no tendriamos un if, solamente le enviariamos el mensaje correcto de los que acabamos de crear al argumento.
 
 
+### [Null Object Pattern](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/8.%20Null%20Object%20Pattern.pdf) (Clase 20/09):
+- La motivación es poder representar colaboradores que no hacen nada, osea son vacíos, pudiendo tratarlos de la misma forma que los colaboradores con comportamiento.
+- Lo que normalmente haríamos es representarlo con nil/null, esto es muy poco efectivo ya que es propenso a errores y nos obliga a escribir un montón de código para gestionar que hacer ante este caso directamente en nuestros métodos en forma de "ifNil" y otras variantes.
+- La forma de solucionarlo es definir una nueva clase que encapsule la forma de "hacer nada" del colaborador que esperamos.
+- Esto se logra haciendo que la clase respete el mismo protocolo que el del colaborador que quiere "nullificar", pero que sus implementaciones no hagan nada apropiadamente. La clave aquí es tener una super clase abstracta que defina el protocolo polimorfico del colaborador.
+- Así podemos tener un *Null Object* como colaborador, enviarle todos los mensajes que queramos, y obtener el comportamiento esperado, que es ninguno, sin código adicional ni errores.
+
+
 ### [Method Object](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/9.%20Method%20Object.pdf) (Clase 24/09): 
 - El problema que queremos resolver es que tenemos un metodo muy grande pero que hace uso de muchas variables temporales y parametros.
 - Esto es malo porque si queremos extraer parte de ese largo codigo a otros metodos nuevos tendriamos que pasarle todas las variables temporales y demas cosas como parametros, resultando en metodos auxiliares que reciben como 8 parametros, osea un quilombo total.
