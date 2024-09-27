@@ -54,6 +54,23 @@
 - *Self*, al igual que *SmallTalk*, soporta el uso de closures. Cuando se debe ejecutar un método o un closure, lo que se hace es clonar el código respectivo en un nuevo objeto y establecerle de padre el objeto receptor del método en cuestión, de esta forma puede resolverse cual es el contexto de ejecución solo con herencia.
 
 
+### [Design Principles Behind Smalltalk](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/5.%20Design%20Principles%20Behind%20Smalltalk.pdf) (Clase 06/09):
+- El propósito de *SmallTalk* es proveer soporte computacional al espíritu creativo de las personas. Para esto se enfocaron tanto en diseñar un lenguaje de descripción (el lenguaje de *SmallTalk* en si), como un lenguaje de interacción (la interfaz gráfica).
+- Si un sistema es para servir al espíritu creativo, debe ser completamente entendible para un individuo solitario.
+- Un sistema debería ser construido con un mínimo conjunto de partes no modificables; esas partes debieran ser tan generales como sea posible. Si no, se atentaría contra la entendibilidad del sistema.
+- El propósito de un lenguaje es proveer un esquema para la comunicación, y en particular los lenguajes de programación deberían proveer un esquema para la comunicación con la computadora, modelando los lenguajes humanos.
+- Un lenguaje de computación debe soportar el concepto de "objeto" y proveer una manera uniforme de referise a los objetos del universo, ya que sobre ellos es como pensamos.
+- Para que un lenguaje sea auténticamente OO un sistema debe proveer administración automática del almacenamiento, ya que se modela la realidad y la realidad no tiene "administración de memoria".
+- La transmisión de mensajes debe ser el único proceso de control del sistema, y definir como funcionan desde los elementos más básicos hasta los más complejos.
+- Un lenguaje debería ser diseñado alrededor de una metáfora poderosa que pueda ser aplicada uniformemente en todas las áreas.
+- Un sistema debe ser modular, ningún componente debe depender de los detalles internos de otro componente.
+- Un lenguaje debe proveer un medio para clasificar objetos similares, y de agregar clases propias al mismo nivel que las centrales del sistema.
+- Un programa solo debería especificar el comportamiento esperado de los objetos, no su representación, osea debe soportar polimorfismo.
+- Cada componente independiente de un sistema sólo debería aparecer en un sólo lugar, osea no debería haber código repetido. Si se cumple esto, un gran reaprovechamiento estará disponible para los usuarios.
+- Cada componente accesible al usuario debería ser capaz de presentarse de una manera entendible para ser observado y manipulado, osea a través de la GUI.
+- Un sistema operativo es una colección de cosas que no encajan dentro de un lenguaje. No debería existir.
+
+
 ### [Polymorphic Hierarchy](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/6.%20Polymorphic%20Hierarchy.pdf) (Clase 13/09):
 - Una subimplementación de un método debería siempre hacer lo mismo que su superimplementación, osea la superimplementación define el "qué" hace la subimplementación. Solo debería variar el "como".
 - La descripción de un método se puede separar en propósito e implementación. El próposito tendría que estar definido unicamente en la superimplementación, y la implementación solo tendría que estar definido en la subimplementación (WOW).
