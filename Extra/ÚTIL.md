@@ -1,10 +1,16 @@
 Tener en cuenta los siguientes mensajes:  
 - inject:into:  
 - self halt  
-- allSatisfy  
-- anySatisfy  
+- allSatisfy:  
+- anySatisfy:  
+- noneSatisfy:  
 - sum  
 - sum:  
 - collect:  
-- collect _(creo que existe sin los :)_  
+- select:  
+- reject:  
+- at:  
+- at:put:  
+- to:by:do:  
 - timesRepeat:  
+
