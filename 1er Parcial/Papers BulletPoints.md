@@ -1,7 +1,7 @@
 [Lista de papers.](https://www.isw2.com.ar/bibliografia-1/papers)
 
 
-### [Programming As Theory Building](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/1.%20Programming%20As%20Theory%20Building.pdf) (Clase 23/08):
+### [Programming As Theory Building](1.%20Programming%20As%20Theory%20Building.pdf) (Clase 23/08):
 - Se nos presenta el *Theory Building* como una forma diferente de entender la programación, en contraposición con la percepción clásica de que es solamente escribir código y otros textos.
 - En *Theory Building* entendemos la programación como la construcción de conocimiento por parte de los programadores sobre lo que estan construyendo, y como la realidad que intentan modelar se corresponde con su modelo.
 - Se define Teoria como el conocimiento para hacer ciertas cosas, pero con la habilidad de entenderlo, poder explicarlo, justificarlo y responder preguntas al respecto.
@@ -15,7 +15,7 @@
 - Se concluye que lo más importante de la programación es el programador.
 
 
-### [The Design of Everyday Things](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/2.%20The%20Design%20of%20Everyday%20Things.pdf) (Clase 27/08):
+### [The Design of Everyday Things](2.%20The%20Design%20of%20Everyday%20Things.pdf) (Clase 27/08):
 - El libro analiza el diseño de los objetos de uso diario y como estos pueden enseñarnos a usarlos o confundirnos por completo.
 - Por ejemplo una puerta puede tener una manija y eso nos da la idea de que debemos tirar para abrir, o puede tener una parte plana donde apoyar la mano y darnos la idea de que hay que empujar, todo solo con el diseño y sin ninguna otra explicación.
 - El ejemplo anterior ilustra uno de los conceptos más importantes: la Visibilidad. Se deben ver las partes correctas del diseño (solo las que el usuario necesita), y deben transmitir el mensaje correcto.
@@ -25,7 +25,7 @@
 - *Mapping*: El mapeo es la relación entre dos cosas. En este caso, debemos poder mappear el diseño con lo que hace. Por ejemplo si tenemos un solo botón que realiza cosas opuestas dependiendo de si lo apretamos o lo mantenemos va a ser inentendible, debe realizar una sola acción que podamos asignarle.
 
 
-### [No Silver Bullet](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/3.%20No%20Silver%20Bullet%20%E2%80%93%20Essence%20and%20Accident%20in%20Software%20Engineering.pdf) (Clase 30/08):
+### [No Silver Bullet](3.%20No%20Silver%20Bullet%20%E2%80%93%20Essence%20and%20Accident%20in%20Software%20Engineering.pdf) (Clase 30/08):
 - Se distingue entre dos dificultades en el desarrollo de software: las esenciales, osea el diseño de estructuras conceptuales complejas que componen las entidades abstractas del software, y las accidentales, osea la representación de estos conceptos en la computadora.
 - Las dificultades accidentales son las que se han solucionado enormemente en el último tiempo, con mejores lenguajes de programación y mejor hardware.
 - En las dificultades esenciales no hay nada que pueda mejorar sustancialmente el desarrollo de software (por eso *No Silver Bullet*).
@@ -42,7 +42,7 @@
     4) Educar a los programadores en las buenas prácticas de diseño.
 
 
-### [Self-The Power Of Simplicity](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/4.%20Self%3A%20The%20Power%20Of%20Simplicity.pdf) (Clase 03/09):
+### [Self-The Power Of Simplicity](4.%20Self%3A%20The%20Power%20Of%20Simplicity.pdf) (Clase 03/09):
 - Este paper define el lenguaje *Self*, un lenguaje de prototipado, y explica sus pros y contras. Lo más parecido que usamos en la materia fueron los Denotative Objects.
 - *Self* se basa en prototipos: Todo en *Self* es un objeto, pero estos no son instanciados de una clase, sino que son clonados de otro objeto, al que muchas veces se lo llama objeto prototípico y que contiene comportamiento e información compartida.
 - En los prototipos la única relación que hay es la de parentezco, donde un objeto hijo puede "heredar" los slots de su objeto padre.
@@ -54,7 +54,7 @@
 - *Self*, al igual que *SmallTalk*, soporta el uso de closures. Cuando se debe ejecutar un método o un closure, lo que se hace es clonar el código respectivo en un nuevo objeto y establecerle de padre el objeto receptor del método en cuestión, de esta forma puede resolverse cual es el contexto de ejecución solo con herencia.
 
 
-### [Design Principles Behind Smalltalk](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/5.%20Design%20Principles%20Behind%20Smalltalk.pdf) (Clase 06/09):
+### [Design Principles Behind Smalltalk](5.%20Design%20Principles%20Behind%20Smalltalk.pdf) (Clase 06/09):
 - El propósito de *SmallTalk* es proveer soporte computacional al espíritu creativo de las personas. Para esto se enfocaron tanto en diseñar un lenguaje de descripción (el lenguaje de *SmallTalk* en si), como un lenguaje de interacción (la interfaz gráfica).
 - Si un sistema es para servir al espíritu creativo, debe ser completamente entendible para un individuo solitario.
 - Un sistema debería ser construido con un mínimo conjunto de partes no modificables; esas partes debieran ser tan generales como sea posible. Si no, se atentaría contra la entendibilidad del sistema.
@@ -71,21 +71,21 @@
 - Un sistema operativo es una colección de cosas que no encajan dentro de un lenguaje. No debería existir.
 
 
-### [Polymorphic Hierarchy](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/6.%20Polymorphic%20Hierarchy.pdf) (Clase 13/09):
+### [Polymorphic Hierarchy](6.%20Polymorphic%20Hierarchy.pdf) (Clase 13/09):
 - Una subimplementación de un método debería siempre hacer lo mismo que su superimplementación, osea la superimplementación define el "qué" hace la subimplementación. Solo debería variar el "como".
 - La descripción de un método se puede separar en propósito e implementación. El próposito tendría que estar definido unicamente en la superimplementación, y la implementación solo tendría que estar definido en la subimplementación (WOW).
 - Cuando todos los implementadores de ciertos métodos en una jerarquía responden estos de la misma forma, con los mismos efectos secundarios, haciendo el mismo "que", teniendo el mismo propósito entonces son polimórficos.
 - Cuando construimos una jerarquía, arriba de todo deberia estar la *Template Class*, que sea bien abstracta y defina el "que" de todas las clases que la subclasifican.
 
 
-### [Double Dispatch](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/7.%20A%20Simple%20Technique%20for%20Handling%20Multiple%20Polymorphism%20(double%20dispatch).pdf) (Clase 17/09):
+### [Double Dispatch](7.%20A%20Simple%20Technique%20for%20Handling%20Multiple%20Polymorphism%20(double%20dispatch).pdf) (Clase 17/09):
 - Situacion: Tenemos un objeto de una primera jerarquia polimorfica que recibe un mensaje de un metodo que toma como argumento un segundo objeto de una segunda jerarquia polimorfica.
 - Problema: tener unos ifs en cada implementacion del metodo que hardcodean codigo para evaluar segun el tipo del argumento.
 - Solucion: crear una nueva familia de mensajes dentro de la segunda jerarquia polimorfica (la del argumento) que contenga un mensaje por cada tipo posible de la primera jerarquia polimorfica, y que en ellos se encuentre el codigo que antes estaba en el if.
 - De esta forma en el metodo original ya no tendriamos un if, solamente le enviariamos el mensaje correcto de los que acabamos de crear al argumento.
 
 
-### [Null Object Pattern](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/8.%20Null%20Object%20Pattern.pdf) (Clase 20/09):
+### [Null Object Pattern](8.%20Null%20Object%20Pattern.pdf) (Clase 20/09):
 - La motivación es poder representar colaboradores que no hacen nada, osea son vacíos, pudiendo tratarlos de la misma forma que los colaboradores con comportamiento.
 - Lo que normalmente haríamos es representarlo con nil/null, esto es muy poco efectivo ya que es propenso a errores y nos obliga a escribir un montón de código para gestionar que hacer ante este caso directamente en nuestros métodos en forma de "ifNil" y otras variantes.
 - La forma de solucionarlo es definir una nueva clase que encapsule la forma de "hacer nada" del colaborador que esperamos.
@@ -93,7 +93,7 @@
 - Así podemos tener un *Null Object* como colaborador, enviarle todos los mensajes que queramos, y obtener el comportamiento esperado, que es ninguno, sin código adicional ni errores.
 
 
-### [Method Object](https://github.com/valnssh/isw-resumen-papers/blob/main/1er%20Parcial/9.%20Method%20Object.pdf) (Clase 24/09): 
+### [Method Object](9.%20Method%20Object.pdf) (Clase 24/09): 
 - El problema que queremos resolver es que tenemos un metodo muy grande pero que hace uso de muchas variables temporales y parametros.
 - Esto es malo porque si queremos extraer parte de ese largo codigo a otros metodos nuevos tendriamos que pasarle todas las variables temporales y demas cosas como parametros, resultando en metodos auxiliares que reciben como 8 parametros, osea un quilombo total.
 - La solucion que se sugiere es crear un objeto que sea la abstraccion del metodo en cuestion, que tenga como colaboradores internos todas estas variables auxiliares y parametros. De esta forma el codigo gigante que antes teniamos se lo podemos pasar al objeto nuevo, y este si puede separarlo en submetodos que no necesiten tomar todos los parametros que antes necesitaban porque directamente acceden a los colaboradores internos.
