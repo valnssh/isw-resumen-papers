@@ -22,6 +22,106 @@
 - Desventajas: Puede ser dificil de entender, abusarse del patrón puede volver un sistema mucho más complejo de lo que debería.
 
 
+### [Decorator Pattern](3.%20Decorator%20Pattern.pdf)
+- Propósito: Agregar responsabilidades adicionales a un objeto de forma dinámica. Es más flexible que subclasificar.
+- La idea es crear nuevas clases que sean polimórficas con el objeto que se quiere decorar. Estas clases tienen como colaborador interno al objeto que estan decorando y definen la nueva funcionalidad que agregan en cada método. De este modo el cliente simplemente le manda mensajes al decorator, algunos de estos el decorator solo se los va a fowardear al decoratee, y en otros va a ser donde implemente la nueva funcionalidad.
+- Desde el lado del cliente es lo mismo interactuar con un objeto decorado que con uno sin decorar porque comparten interfaz. Además este polimorfismo permite crear cadenas de decorators para agregar montones de funcionalidades nuevas.
+- Estructura y Colaboraciones:
+	1) Una clase abstracta que define la interfaz tanto del objeto decorado como de los decorators.
+	2) La clase concreta del objeto decorado que subclasifica de la del punto 1
+	3) La clase abstracta que define la interfaz de los decorators y subclasifica de la del punto 1. De entrada esta clase abstracta no aporta nada más que definir el colaborador interno 'decoratee' que todos los decorators van a tener y mantener la implementación de algún método que sea común a todos los decorators.
+	4) Las clases concretas de Decorator. Estas van a fowardear sus mensajes al decoratee, y pueden agregar comportamiento antes y/o despues de fowardear. Tambien pueden definir métodos específicos con funcionalidad enteramente propia, estos serán usados por clientes que sepan que el objeto que estan usando fue decorado con este decorator para implementar dicha funcionalidad.
+- Ventajas:
+	1) Es mucho más flexible que la subclasificación. Podemos añadir responsabilidad a un objeto en específico en medio de la ejecución, y despues quitarsela. También podemos combinar montones de funcionalidades muy facilmente. En contraposición si hacemos subclases deberíamos hacer una por cada nueva funcionalidad, y otras más por cada posible combinación de funcionalidades, y los objetos así creados deberían mantener las funcionalidades con las que fueron creados por toda su existencia.
+	2) Nos ahorra tener que definir clases llenas de comportamiento que no les pertenece realmente.
+- Desventajas:
+	1) Perdemos la igualdad de objetos, ya que no sabemos si el objeto que tenemos es el verdadero o un decorator.
+	2) Crea sistemas complejos de aprender y de debugear.
+
+
+### [Adapter Pattern](4.%20Adapter%20Pattern.pdf)
+- Propósito: Convertir la interfaz de una clase en otra interfaz nueva que es la que los clientes esperan.
+- La idea es crear un nuevo objeto que sirva de traductor entre los clientes y el objeto verdadero. Los clientes van a usar este nuevo objeto adaptador tranquilamente ya que implementa la interfaz que ellos quieren, e internamente el adaptador le va a fowardear la responsabilidad a su objeto adaptado de forma correcta.
+- Estructura y Colaboraciones:
+	1) Una clase abstracta que define la interfaz que los clientes esperan.
+	2) La clase del adaptador que subclasifica de la anterior.
+	3) La clase del objeto adaptado que tiene su propia interfaz.
+	- Los clientes le envían mensajes al adaptador y este los recibe y se los envía al objeto adaptado cumpliendo con su interfaz específica.
+- Ventajas:
+	1) Se puede reutilizar clases que hubieran sido incompatibles previamente, evitando así la repetición de código.
+	2) Nos permite adaptar todos los objetos que tengan la misma interfaz que el objeto adaptado, pudiendo adaptar toda su jerarquía polimórfica con un solo tipo de adapter.
+- Algo a tener en cuenta es que se pueden crear adaptadores parametrizados, es decir adaptadores que a la hora de crearlos les pasamos clossures que le indican como adaptar cada mensaje. De esta forma permitimos que cada objeto que quiera ser adaptado a la interfaz del cliente le indique al adaptador como debe ser adaptado.
+
+
+### [Proxy Pattern](5.%20Proxy%20Pattern.pdf)
+- Propósito: proveer un placeholder de otro objeto y que controle el acceso a este.
+- La idea es que en vez de tener un puntero a un objeto, tener algo con más funcionalidad pero que cumpla el mismo rol de referenciar el objeto deseado. Esto nos permite por ejemplo si tenemos un objeto en la base de datos, en vez de que cada vez que queramos interactuar con este tengamos que ir a buscarlo al db, podamos tener un representante local y solamente ir a buscar el objeto real cuando sea estrictamente necesario.
+- Estructura y Colaboraciones:
+	1) Una clase abstracta que define la interfaz del objeto que queremos proxiear.
+	2) La clase concreta del objeto que subclasifica de la anterior
+	3) La clase del proxy, que subclasifica de la del punto 1 y tiene un colaborador interno donde se guarda su objeto proxiado.
+	- El cliente interactua con el proxy de forma transparente como si fuera el objeto real, y el proxy implementa en cada mensaje la funcionalidad que necesite para controlar el acceso al objeto real como más guste.
+- Ventajas:
+	1) El proxy provee una capa de indirección a la hora de acceder a un objeto. Esto permite realizar distintas cosas, por ejemplo esconder el hecho de que el objeto real esta en una base de datos y no en memoria, proveer optimizaciones a la hora de responder ciertos mensajes, o dar una capa de seguridad al objeto proxiado.
+
+
+### [Composite Pattern](6.%20Composite%20Pattern.pdf)
+- Propósito: Componer objetos para obtener estructuras arboreas que representen jerarquías en nuestro modelo. Nos permite tratar objetos individuales y objetos compuestos de forma uniforme.
+- La idea es hacer que tanto los objetos individuales de nuestro modelo, como los objetos compuestos (osea los que son contenedores de objetos individuales) tengan la misma interfaz. De esta forma no solo podemos agregar objetos individuales a un objeto compuesto, sino tambien otros objetos compuestos, lo que deriva en toda una estructura arborea. De esta forma el cliente puede interactuar con la estructura de la misma forma que si fuera con un objeto individual, de forma totalmente transparente.
+- Estructura y Colaboraciones:
+	1) Una clase abstracta que define la interfaz tanto de los objetos individuales como de los compuestos.
+	2) Clases concretas de objetos individuales, estos van a representar las hojas de nuestra estructura arborea.
+	3) Clases concretas de objetos compuestos, estas van a tener un colaborador interno que sea una lista de sus hijos, y va a implementar la funcionalidad de agregar y quitar hijos.
+	- El cliente va a interactuar de igual forma con objetos individuales que con objetos compuestos. Si le envía un mensaje y es un objeto individual entonces el mensaje se responde directamente, si es un objeto compuesto entonces se le fowardea a cada uno de sus hijos, pudiendo implementar funcionalidad adicional antes y/o después de fowardear.
+- Ventajas: 
+	1) Permite crear estructuras arbitrariamente complejas y que sean tratadas de igual forma que los objetos individuales.
+	2) Permite agregar nuevos componentes de forma muy sencilla.
+- Desventajas: 
+	1) Esta transparencia entre todos los objetos, tanto individuales como compuestos, hace mucho más complicado crear objetos compuestos que solo puedan tener de hijos ciertos objetos de la jerarquía y no todos.
+
+
+### [Visitor Pattern](7.%20Visitor%20Pattern.pdf)
+- Propósito: Representar una operación que se realiza sobre una estructura de objetos. Nos permite definir la nueva operación sin tener que ir a redefinir las clases de los elementos de la estructura.
+- La idea es definir una operaciones que se realizan sobre una estructura de objetos. Como dijimos, no queremos que esten implementados en cada uno de estos objetos como responder las operaciones, por lo que creamos un objeto separado, un visitor. Este objeto va a ser llevado por toda la estructura y con un double dispatch a cada elemento el se encarga de ejecutar la operación correspondiente. De esta forma podemos agregar nuevas operaciones muy facilmente agregando nuevos visitors.
+- Estructura y Colaboraciones:
+	1) Una primer clase abstracta que define la interfaz de los elementos de la estructura de objetos mencionada. A esta interfaz le vamos a agrear el método para aceptar visitors.
+	2) Las clases concretas de elementos que implementan lo anterior.
+	3) Otra clase abstracta que define la interfaz de los visitors. Esta interfaz debe tener un método especifico para visitar cada clase concreta de las anteriores.
+	4) Las clases concretas de visitors que implementan lo anterior.
+	- Para usar un visitor primero creamos su instancia y luego se la mandamos a la estructura de objetos para que la recorra. A cada nodo de la estructura se le va a enviar el mensaje de acceptVisitor con el visitor como argumento. Estos nodos van a implementar el mensaje de acceptVisitor mandandole al visitor que reciben el mensaje especifico de visitar para su clase, por ejemplo 'aVisitor visitConcreteElementA: self'. El visitor define cada uno de estos mensajes para implementar la operación correspondiente.
+- Ventajas:
+	1) Agregar operaciones es tan simple como agregar un nuevo visitor. La nueva funcionalidad no queda dispersa por toda la estructura.
+	2) Permite mantener la esencia de los objetos visitados, no agregandoles responsabilidades que no les pertenecen.
+	3) El visitor puede acumular los resultados de las operaciones de los elementos como colaborador interno. Si no usasemos un visitor tendriamos que ir pasando los resultados parciales como argumentos o guardarlo en variables con acceso global.
+- Desventajas:
+	1) Agregar nuevos elementos a la estructura es complicado, ya que tenemos que redefinir todos los visitors. Si ese es nuestro caso no conviene usarlo.
+	2) Podría ser que para ciertas operaciones el visitor necesite información interna de los nodos que visita, poniendo en peligro el encapsulamiento de estos.
+- A tener en cuenta: La forma que se recorre la estructura de objetos generalmente esta definida en el objeto que engloba toda esa estructura. Por ejemplo una lista va a hacer que el visitor recorra la estructura iterando por cada uno de sus elementos. Esto es generalmente lo mejor pero podría ser el caso que queramos que los visitors tengan esa responsabilidad para que puedan recorrer la estructura de formas distintas y complejas según la operación que realicen. Remarco distintas y complejas, si en todos los visitors se recorre igual dejar esa responsabilidad en cada visitor sería tener código repetido.
+
+
+### [Observer Pattern](8.%20Observer%20Pattern.pdf)
+- Propósito: Crear una forma eficiente de que muchos objetos puedan depender del estado interno de un objeto.
+- La idea es que yo tengo un objeto que tiene cierta información o estado interno, y otros diversos objetos que dependen de esa información. Queremos que si hay un cambio en el primer objeto los segundos se actualicen automáticamente. Para evitar que los objetos esten totalmente acoplados lo que hacemos es que el primer objeto envie una notificación a todos los demás objetos que lo estan observando.
+- Estructura y Colaboraciones:
+	1) Una clase abstracta que define la interfaz del objeto observado y el colaborador interno en el cual se guardara los observadores. Esta interfaz debe incluir los métodos para agregar y quitar observadores y para enviarles la notifiación.
+	2) Una clase abstracta que define la interfaz de los observadores. Esta interfaz debe implementar el método para recibir la notificación del objeto observado.
+	3) Las clases concretas de las anteriores
+	- Cuando en el objeto observado se produce un cambio, este recorre toda su colección de observadores y le envía a cada uno un mensaje de notificación del cambio. Cada observador recibe este mensaje y actualiza su propio estado de forma correspondiente. Podría darse tambien que el observador conozca al objeto observado y pueda pedirle más información al respecto del cambio.
+- Ventajas: 
+	1) Permite desacoplar el objeto observado de sus observadores. Esto nos permite agregar nuevos observadores al objeto de forma dinámica y quitarlos sin preocupaciones, y crear nuevos tipos de observador de forma muy simple.
+- Este patrón en particular tiene un montón de consideraciones para cada caso específico de uso. No creo que resumirlas tenga mucho valor para la materia, pero si quieren ver de que se trata lean la sección de implementación del patrón.
+
+
+### [Pattern Abuser](9.%20Pattern%20Abuser.pdf)
+- Este texto es mayormente una historia, una fábula si se quiere para enseñarnos una moraleja.
+- Cuenta sobre una persona que solamente programaba enfocandose en hacer las cosas funcionar, y que descubre los patrones de diseño.
+- Esta persona se obsesiona con los patrones y los considera la única forma correcta de programar, buscando aplicarlos a cada situación posible.
+- Llega a tal punto de creencia en los patrones que comienza a medir la calidad del código en términos de cuantos patrones aplica, y se vuelve consultor de empresas que lo contrataban para que revisara su código.
+- Se nos explica el nivel de delirio mostrandonos que la persona desarrollo "un patrón" para aplicar patrones, que consistía en aplicar sin ningún tipo de consideración 15 patrones distintos.
+- Finalmente el protagonista se confiesa y nos cuenta que no sabe si aplicar estos patrones en realidad no estaba empeorando el código inicial, y que solamente se estaba abusando de los patrones sin saber si era lo correcto usarlos.
+- La moraleja es que tenemos que diseñar con cabeza, no aplicar los patrones a diestra y siniestra. Si lo hacemos vamos a terminar con sistemas peores, más complicados de entender y que modelan mucho peor la realidad.
+
+
 ### [Modern Software Engineering](10.%20Modern%20Software%20Engineering.pdf)
 - La ingeniería del software es la aplicación de un enfoque empírico y científico para conseguir soluciones eficientes y económicas para problemas prácticos del software.
 - Para ser buenos ingenieros tenemos que ser expertos en aprender. El verdadero progreso y mejora en nuestros desarrollos se hace cuando aprendemos de ellos y los mejoramos y no solo cuando funcionan. Puntos claves son:
