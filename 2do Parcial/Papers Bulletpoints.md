@@ -10,6 +10,7 @@
 - Ventajas: 
 	1) Encapsula y separa el comportamiento de cada estado. Nos permite agregar nuevos estados facilmente y sin cambiar nada de lo hecho previamente. No tenemos que lidiar con molestos ifs esparcidos en todos los métodos.
 	2) Permite hacer las transiciones entre estados más explicitas (crear una nueva instancia de una clase es mucho más facil de ver que tener asignaciones de flags o de booleanos por cualquier lado).
+- Ejercicio donde aparece: primer iteración de MarsRover con el colaborador interno heading.
 
 
 ### [Object Recursion](2.%20Object%20Recursion.pdf)
@@ -20,6 +21,7 @@
     3) Las partes que componen al objeto anterior, todas deben ser polimórficas con el objeto, osea todas deben implementar "handleRequest". Estas partes pueden tambien ser objetos complejos, por eso lo recursivo.
 - Ventajas: Se permite implementar las funcionalidades sin conocer de antemano como esta formada la estructura; delega correctamente las responsabilidades, cada parte se hace cargo de su trabajo; no necesita romper encapsulamiento para implementar nada.
 - Desventajas: Puede ser dificil de entender, abusarse del patrón puede volver un sistema mucho más complejo de lo que debería.
+- Ejercicio donde aparece: más o menos todo el tiempo en Porfolio, suele estar intrínseco en otros patrones de diseño.
 
 
 ### [Decorator Pattern](3.%20Decorator%20Pattern.pdf)
@@ -78,6 +80,7 @@
 	2) Permite agregar nuevos componentes de forma muy sencilla.
 - Desventajas: 
 	1) Esta transparencia entre todos los objetos, tanto individuales como compuestos, hace mucho más complicado crear objetos compuestos que solo puedan tener de hijos ciertos objetos de la jerarquía y no todos.
+- Ejercicio donde aparece: en Portfolio, cuando calculamos el balance de los Portfolios.
 
 
 ### [Visitor Pattern](7.%20Visitor%20Pattern.pdf)
@@ -97,6 +100,7 @@
 	1) Agregar nuevos elementos a la estructura es complicado, ya que tenemos que redefinir todos los visitors. Si ese es nuestro caso no conviene usarlo.
 	2) Podría ser que para ciertas operaciones el visitor necesite información interna de los nodos que visita, poniendo en peligro el encapsulamiento de estos.
 - A tener en cuenta: La forma que se recorre la estructura de objetos generalmente esta definida en el objeto que engloba toda esa estructura. Por ejemplo una lista va a hacer que el visitor recorra la estructura iterando por cada uno de sus elementos. Esto es generalmente lo mejor pero podría ser el caso que queramos que los visitors tengan esa responsabilidad para que puedan recorrer la estructura de formas distintas y complejas según la operación que realicen. Remarco distintas y complejas, si en todos los visitors se recorre igual dejar esa responsabilidad en cada visitor sería tener código repetido.
+- Ejercicio donde aparece: en Portfolio2, cuando hicimos el ReportSummary, TransferNet, etc., visitamos las estructuras y terminamos con un dispatch al visitor (que en este caso sería, por ej, ReportSummary).
 
 
 ### [Observer Pattern](8.%20Observer%20Pattern.pdf)
@@ -110,6 +114,7 @@
 - Ventajas: 
 	1) Permite desacoplar el objeto observado de sus observadores. Esto nos permite agregar nuevos observadores al objeto de forma dinámica y quitarlos sin preocupaciones, y crear nuevos tipos de observador de forma muy simple.
 - Este patrón en particular tiene un montón de consideraciones para cada caso específico de uso. No creo que resumirlas tenga mucho valor para la materia, pero si quieren ver de que se trata lean la sección de implementación del patrón.
+- Ejercicio donde aparece: MarsRover: ahora más rover que nunca (la segunda parte del MarsRover). Lo usamos para suscribirnos a los cambios de posición y heading del MarsRover, hacíamos que el MarsRover le avise a sus observers "che, cambié tal cosa"; también está la solución superadora, que es usar una variable que notifique a sus observers para sacarnos el código repetido que nos quedaba.
 
 
 ### [Pattern Abuser](9.%20Pattern%20Abuser.pdf)
