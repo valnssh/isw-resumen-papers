@@ -148,4 +148,8 @@
 - Un problema que tenemos es que es muy dificil medir cuando nuestras formas de trabajar son buenas o no.
 - Para esto el libro habla sobre la forma de medirlo que se desarrollo analizando DevOps, que se basa en medir la "estabilidad" y el "rendimiento". La estabilidad se mide según el ratio en el cual introducir un cambia produce errores, y el tiempo que se tarda en corregir los errores en el software. El rendimiento se mide en el tiempo que lleva cambiar el código para que tenga nueva funcionalidad y que tan frecuentemente se llevan a cabo los cambios (la idea es que nos indica que el desarrollo esta teniendo mucho feedback y por lo tanto se aprende más y es mejor).
 
+
 ### [Respuesta sobre Computer Science de Alan Kay en Quora](https://www.quora.com/Was-computing-dumbed-down-by-the-arrival-of-computer-science-in-academia/answer/Alan-Kay-11)
+- Alan Kay propone que en el pasado la ciencia de la computación era algo mucho menos popular que ahora, lo que hacía que la gente que se dedicaba a esto lo hiciera en busca de verdaderamente impulsar la nueva ciencia hacia delante y no buscar trabajo.
+- Reclama de que parte de la culpa la tienen las universidades que cambiaron de modelo para ser más un negocio y poder subirse al boom de popularidad de la computación sin pensar en la calidad educativa.
+- Uno de sus reclamos es que no se enseña la historia de la ciencia de la computación, ni quienes la hicieron, ni siquiera una buena definición de ciencia. Esto indica, según él, una falta de perspectiva y curiosidad intelectual.
