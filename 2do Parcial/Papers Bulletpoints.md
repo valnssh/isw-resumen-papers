@@ -39,6 +39,7 @@
 - Desventajas:
 	1) Perdemos la igualdad de objetos, ya que no sabemos si el objeto que tenemos es el verdadero o un decorator.
 	2) Crea sistemas complejos de aprender y de debugear.
+- Se trabaja con el último decorator de la cadena de decorators (mandan mensajes). El usuario/cliente no se da cuenta que tiene decorators de por medio.
 
 
 ### [Adapter Pattern](4.%20Adapter%20Pattern.pdf)
@@ -53,11 +54,16 @@
 	1) Se puede reutilizar clases que hubieran sido incompatibles previamente, evitando así la repetición de código.
 	2) Nos permite adaptar todos los objetos que tengan la misma interfaz que el objeto adaptado, pudiendo adaptar toda su jerarquía polimórfica con un solo tipo de adapter.
 - Algo a tener en cuenta es que se pueden crear adaptadores parametrizados, es decir adaptadores que a la hora de crearlos les pasamos clossures que le indican como adaptar cada mensaje. De esta forma permitimos que cada objeto que quiera ser adaptado a la interfaz del cliente le indique al adaptador como debe ser adaptado.
+- Se trabaja con el adapter (mandan mensajes). El usuario/cliente no se da cuenta que está laburando con un adapter.
 
 
 ### [Proxy Pattern](5.%20Proxy%20Pattern.pdf)
 - Propósito: proveer un placeholder de otro objeto y que controle el acceso a este.
-- La idea es que en vez de tener un puntero a un objeto, tener algo con más funcionalidad pero que cumpla el mismo rol de referenciar el objeto deseado. Esto nos permite por ejemplo si tenemos un objeto en la base de datos, en vez de que cada vez que queramos interactuar con este tengamos que ir a buscarlo al db, podamos tener un representante local y solamente ir a buscar el objeto real cuando sea estrictamente necesario.
+- La idea es que en vez de tener un puntero a un objeto, tener algo con más funcionalidad pero que cumpla el mismo rol de referenciar el objeto deseado. Esto nos permite por ejemplo si tenemos un objeto en la base de datos, en vez de que cada vez que queramos interactuar con este tengamos que ir a buscarlo al base de datos, podamos tener un representante local y solamente ir a buscar el objeto real cuando sea estrictamente necesario.
+- El texto separa en 3 tipos de proxies:
+  	- **Remote proxy**: Provee una representación local para un objeto que se encuentra en un espacio/lugar diferente (diferentes partes de la memoria, otra computadora, etc.)
+  	- **Virtual proxy**: crea objetos caros on-demand. Ejemplo, cuando abrís un documento, no cargás todos los .svg de entrada porque te explota la compu; primero cargás el texto y vas cargando los vectores (.svg) mientras es necesario mostrarlos en pantalla.
+  	- **Protection proxy**: controla el acceso original al objeto. Útil para tener diferentes niveles de acceso, por ejemplo (lectura/escritura); recordar que se puede representar a las posiciones de memoria como un objeto.
 - Estructura y Colaboraciones:
 	1) Una clase abstracta que define la interfaz del objeto que queremos proxiear.
 	2) La clase concreta del objeto que subclasifica de la anterior
@@ -65,6 +71,7 @@
 	- El cliente interactua con el proxy de forma transparente como si fuera el objeto real, y el proxy implementa en cada mensaje la funcionalidad que necesite para controlar el acceso al objeto real como más guste.
 - Ventajas:
 	1) El proxy provee una capa de indirección a la hora de acceder a un objeto. Esto permite realizar distintas cosas, por ejemplo esconder el hecho de que el objeto real esta en una base de datos y no en memoria, proveer optimizaciones a la hora de responder ciertos mensajes, o dar una capa de seguridad al objeto proxiado.
+- Se trabaja con el proxy (mandan mensajes). El usuario/cliente no se da cuenta que es un proxy.
 
 
 ### [Composite Pattern](6.%20Composite%20Pattern.pdf)
@@ -125,6 +132,7 @@
 - Se nos explica el nivel de delirio mostrandonos que la persona desarrollo "un patrón" para aplicar patrones, que consistía en aplicar sin ningún tipo de consideración 15 patrones distintos.
 - Finalmente el protagonista se confiesa y nos cuenta que no sabe si aplicar estos patrones en realidad no estaba empeorando el código inicial, y que solamente se estaba abusando de los patrones sin saber si era lo correcto usarlos.
 - La moraleja es que tenemos que diseñar con cabeza, no aplicar los patrones a diestra y siniestra. Si lo hacemos vamos a terminar con sistemas peores, más complicados de entender y que modelan mucho peor la realidad.
+- Termina pidiéndole ayuda al lector.
 
 
 ### [Modern Software Engineering](10.%20Modern%20Software%20Engineering.pdf)
@@ -149,7 +157,52 @@
 - Para esto el libro habla sobre la forma de medirlo que se desarrollo analizando DevOps, que se basa en medir la "estabilidad" y el "rendimiento". La estabilidad se mide según el ratio en el cual introducir un cambia produce errores, y el tiempo que se tarda en corregir los errores en el software. El rendimiento se mide en el tiempo que lleva cambiar el código para que tenga nueva funcionalidad y que tan frecuentemente se llevan a cabo los cambios (la idea es que nos indica que el desarrollo esta teniendo mucho feedback y por lo tanto se aprende más y es mejor).
 
 
+### [Modern Software Engineering, versión alternativa: basada en las diapositivas de Sebastián](10.%20Modern%20Software%20Engineering.pdf)
+#### CAPÍTULO 1: ¿QUÉ ES LA INGENIERÍA DE SOFTWARE?
+- **La ingeniería de software como proceso de aprendizaje**: El desarrollo de software es un proceso continuo de descubrimiento y exploración, lo que exige que los ingenieros se conviertan en expertos en aprender y adaptarse constantemente.
+  	- **Un enfoque empírico**: La ingeniería de software aplica un enfoque científico y empírico para resolver problemas prácticos de forma eficiente y económica, lo que implica manejar la complejidad de los sistemas sin comprometer nuestra capacidad de aprender y evolucionar.
+- **Crisis del software**: En la década de 1960, se percibió una brecha considerable entre el progreso *rápido* del *hardware* y el más *lento* del *software*, conocida como la crisis del software. Fred Brooks destacó que no hay soluciones mágicas que prometan mejoras significativas en productividad, confiabilidad o simplicidad a corto plazo.
+
+#### CAPÍTULO 2: ¿QUÉ ES LA INGENIERÍA?
+- **La producción no es nuestro mayor desafío**:  
+	- **Producción en otros campos**: La producción en masa de objetos físicos, como automóviles o teléfonos, es costosa y compleja. En software, sin embargo, la “producción” consiste en compilar el código, un proceso comparativamente simple.
+ 	- **Mentalidad de producción**: La industria del software ha heredado enfoques como el modelo Waterfall, diseñado para líneas de producción. Sin embargo, el desarrollo de software se beneficia más de procesos que fomenten el descubrimiento, el aprendizaje y la experimentación.
+  - **Ingeniería de diseño, no de producción**:
+  	- **Diseño frente a producción**: En el caso de un puente físico, los desafíos no solo están en el diseño, sino también en los costos y dificultades de producción. En software, el diseño es central, pero iterar y ajustar modelos es mucho más accesible.
+  	- **Ventajas del software**: A diferencia de los productos físicos, los modelos de software son también su resultado final, lo que permite iteraciones rápidas y económicas.
+  - **La ingeniería como matemática**:  
+  	- **Métodos formales**: Estos ofrecen validación matemática del software, pero su complejidad limita su adopción en contextos prácticos y dinámicos.
+   	- **Pragmatismo y empirismo**: En lugar de depender solo de la teoría, se adopta un enfoque experimental y empírico, similar a la validación en ingeniería aeroespacial. El software, aunque más flexible, debe equilibrar formalidad y adaptabilidad en dominios complejos o concurrentes.
+  - **Definición operativa de ingeniería**: La ingeniería aplica un enfoque empírico y científico para resolver problemas prácticos de manera eficiente y económica. Cada palabra importa: es ciencia aplicada, orientada a la práctica y limitada por factores económicos.
+
+#### CAPÍTULO 3: FUNDAMENTOS DE UN ENFOQUE DE INGENIERÍA
+- **¿Es una industria cambiante?**: Aunque la industria celebra nuevos avances tecnológicos, no todos generan cambios significativos en cómo se desarrolla software. La mayor parte del progreso ha estado relacionado con niveles más altos de abstracción, como el paso de ensamblador a lenguajes de alto nivel y de paradigmas procedurales a orientados a objetos.
+- **La importancia de medir**:  
+	- **Problemas con las métricas tradicionales**: Muchas medidas como velocity, líneas de código o cobertura de tests son irrelevantes o incluso contraproducentes.
+   		- *(Métrica)* **Stability**: Rastrea la tasa de fallos de cambios y el tiempo de recuperación.
+   		- *(Métrica)* **Throughtput**: Mide la eficiencia (lead time) y la frecuencia de despliegues.
+     	- **Aplicación de estabilidad y rendimiento**:  
+        	- **Medición del impacto**: Estas métricas permiten evaluar cambios en procesos, tecnología o cultura. Por ejemplo, añadir un Change Approval Board puede ralentizar el proceso sin mejorar la estabilidad, evidenciando cómo decisiones mal fundamentadas pueden ser contraproducentes.
+        	- **Pruebas empíricas**: Al aplicar estas métricas, podemos tomar decisiones informadas sobre adopción de tecnologías o modificaciones organizacionales, priorizando mejoras en rendimiento y estabilidad.
+- **Los Fundamentos de una disciplina de Ingeniería de Software**:  
+  	- **Convertirnos en expertos en aprender**: Debemos reconocer y aceptar que nuestra disciplina es creativa y de diseño, sin una relación significativa con la ingeniería de producción. En su lugar, debemos centrarnos en dominar habilidades de exploración, descubrimiento y aprendizaje, aplicando un razonamiento científico.
+  	- **Convertirnos en expertos en manejar la complejidad**: Creamos sistemas que no caben en nuestras mentes. Construimos sistemas a gran escala, con grandes grupos de personas trabajando en ellos. Debemos convertirnos en expertos en manejar la complejidad, tanto a nivel técnico como organizacional.
+  	- **Cinco comportamientos clave en esta categoría**:  
+  	  	- Trabajar de manera iterativa.
+  	  	- Utilizar feedback rápido y de alta calidad.
+  	  	- Trabajar de forma incremental.
+  	  	- Ser experimentales.
+  	  	- Ser empíricos.
+  	- **Cinco ideas clave para manejar la complejidad**:  
+  	  	- Modularidad.
+  	  	- Cohesión.
+  	  	- Separación de responsabilidades.
+  	  	- Encapsulamiento/abstracción.
+  	  	- Acoplamiento.
+
+
 ### [Respuesta sobre Computer Science de Alan Kay en Quora](https://www.quora.com/Was-computing-dumbed-down-by-the-arrival-of-computer-science-in-academia/answer/Alan-Kay-11)
 - Alan Kay propone que en el pasado la ciencia de la computación era algo mucho menos popular que ahora, lo que hacía que la gente que se dedicaba a esto lo hiciera en busca de verdaderamente impulsar la nueva ciencia hacia delante y no buscar trabajo.
 - Reclama de que parte de la culpa la tienen las universidades que cambiaron de modelo para ser más un negocio y poder subirse al boom de popularidad de la computación sin pensar en la calidad educativa.
+- Recalca que fue shockeado cuando la universidad de Stanford determinó el uso de Java como primer lenguaje de programación para los estudiantes entrantes. Java nos da abstracciones que nos hace olvidarnos, por ejemplo, del manejo de la memoria.
 - Uno de sus reclamos es que no se enseña la historia de la ciencia de la computación, ni quienes la hicieron, ni siquiera una buena definición de ciencia. Esto indica, según él, una falta de perspectiva y curiosidad intelectual.
